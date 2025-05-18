@@ -1,7 +1,14 @@
 import React from 'react';
 import { Citrus as Industry } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function BrowseSection() {
+  const navigate = useNavigate();
+
+  const handleBrowseClick = () => {
+    navigate('/assessment');
+  };
+
   return (
     <div className="bg-purple-900/50 p-4 md:p-8 rounded-xl backdrop-blur-sm">
       <div className="flex items-center mb-4">
@@ -16,7 +23,9 @@ export function BrowseSection() {
           <option value="finance">Finance</option>
           <option value="education">Education</option>
         </select>
-        <button className="w-full bg-purple-600 hover:bg-purple-700 py-2 md:py-3 rounded-lg transition text-sm md:text-base">
+        <button 
+          onClick={handleBrowseClick}
+          className="w-full bg-purple-600 hover:bg-purple-700 py-2 md:py-3 rounded-lg transition text-sm md:text-base">
           Browse Industries
         </button>
       </div>

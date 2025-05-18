@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -9,6 +10,9 @@ export default function Login() {
     e.preventDefault();
     // Handle login logic here
     console.log('Login attempt:', { email });
+    
+    // After successful login, navigate to home
+    navigate('/');
   };
 
   return (

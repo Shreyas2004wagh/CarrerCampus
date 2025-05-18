@@ -1,58 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Your Career Suggestions</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="results.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Engineer Career</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <div class="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-black text-white">
-    <header class="container mx-auto px-4 py-4 md:py-8">
-      <nav class="flex justify-between items-center">
-        <h1 class="text-xl md:text-2xl font-bold">CareerCompass</h1>
-        <div class="flex items-center space-x-4">
-          <a href="index.html" class="text-purple-200 hover:text-white transition">Back to Home</a>
-        </div>
-      </nav>
-    </header>
 
-    <main class="container mx-auto px-4 py-8">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold mb-4">Your Top Career Matches</h2>
-          <p class="text-purple-200">Based on your assessment, here are your personalized career recommendations</p>
-        </div>
-
-        <div id="results" class="space-y-4"></div>
+<body class="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-black text-white">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Computer Engineer</h1>
+      <p class="text-purple-200 text-lg md:text-xl mb-8">
+        A tech-savvy problem solver responsible for designing, developing, and maintaining computer systems and
+        software.
+      </p>
+      <div class="bg-purple-900/30 p-6 md:p-8 rounded-xl backdrop-blur-sm shadow-lg space-y-8">
+        <section class="space-y-4">
+          <h3 class="text-2xl font-semibold text-purple-200">Average Salary</h3>
+          <p class="text-lg text-purple-300">$80,000 - $120,000 per year</p>
+        </section>
+        <section class="space-y-4">
+          <h3 class="text-2xl font-semibold text-purple-200">Required Skills</h3>
+          <ul class="list-disc list-inside text-purple-300 space-y-2">
+            <li>Programming (C++, Python, Java)</li>
+            <li>Problem-Solving</li>
+            <li>System Design</li>
+            <li>Hardware and Software Integration</li>
+            <li>Analytical Thinking</li>
+          </ul>
+        </section>
+        <section class="space-y-4">
+          <h3 class="text-2xl font-semibold text-purple-200">Career Brief</h3>
+          <p class="text-lg text-purple-300">
+            Computer engineers blend electrical engineering and computer science to develop computer hardware and
+            software, driving innovation in technology.
+          </p>
+        </section>
+        <button class="w-full mt-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 transition text-white font-medium">
+          Explore More Careers
+        </button>
       </div>
-    </main>
+    </div>
   </div>
-
-  <script>
-    const resultDiv = document.getElementById('results');
-    const matches = JSON.parse(localStorage.getItem("careerMatches") || "[]");
-
-    if (matches.length === 0) {
-        resultDiv.innerHTML = `
-          <div class="bg-purple-900/30 p-6 rounded-xl backdrop-blur-sm text-center">
-            <p class="text-purple-200">No matches found. Try submitting the form again.</p>
-            <a href="assessment.html" class="inline-block mt-4 px-6 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition">
-              Take Assessment
-            </a>
-          </div>
-        `;
-    } else {
-        matches.forEach(career => {
-            const card = document.createElement('div');
-            card.className = 'bg-purple-900/30 p-6 rounded-xl backdrop-blur-sm';
-            card.innerHTML = `
-              <h2 class="text-xl font-semibold">${career.title}</h2>
-            `;
-            resultDiv.appendChild(card);
-        });
-    }
-  </script>
 </body>
+
 </html>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const featuredCareers = [
   {
@@ -22,6 +23,12 @@ const featuredCareers = [
 ];
 
 export function FeaturedCareers() {
+  const navigate = useNavigate();
+
+  const handleLearnMoreClick = (careerTitle: string) => {
+    navigate('/careerSample');
+  };
+
   return (
     <section className="container mx-auto px-4 py-12">
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Featured Careers</h2>
@@ -34,7 +41,9 @@ export function FeaturedCareers() {
               <p className="text-sm">Growth Outlook: {career.growth}</p>
               <p className="text-sm">{career.description}</p>
             </div>
-            <button className="mt-4 w-full bg-purple-600 hover:bg-purple-700 py-2 rounded-lg transition text-sm">
+            <button 
+              onClick={() => handleLearnMoreClick(career.title)}
+              className="mt-4 w-full bg-purple-600 hover:bg-purple-700 py-2 rounded-lg transition text-sm">
               Learn More
             </button>
           </div>

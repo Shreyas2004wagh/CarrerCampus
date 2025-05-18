@@ -1,7 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search, Briefcase, GraduationCap, Sun, Layers } from 'lucide-react';
 
 export default function Home() {
+  const navigate = useNavigate();
+
+  const handleSearchClick = () => {
+    navigate('/assessment');
+  };
+
+  const handleBrowseClick = () => {
+    navigate('/assessment');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-black text-white">
       <header className="container mx-auto px-4 py-4 md:py-8">
@@ -12,7 +22,14 @@ export default function Home() {
           <div className="flex items-center space-x-3 md:space-x-6">
             <Link to="/" className="hover:text-purple-300 transition text-sm md:text-base">Home</Link>
             <Link to="/about" className="hover:text-purple-300 transition text-sm md:text-base">About</Link>
-            <Link to="/login" className="bg-purple-600 hover:bg-purple-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg transition text-sm md:text-base">
+            <Link 
+              to="/login" 
+              className="bg-purple-600 hover:bg-purple-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg transition text-sm md:text-base"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/login');
+              }}
+            >
               Login/Signup
             </Link>
           </div>
@@ -41,7 +58,9 @@ export default function Home() {
                 placeholder="Search careers (e.g., doctor, engineer)"
                 className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg bg-purple-800/50 border border-purple-600 focus:outline-none focus:border-purple-400 text-sm md:text-base"
               />
-              <button className="w-full bg-purple-600 hover:bg-purple-700 py-2 md:py-3 rounded-lg transition text-sm md:text-base">
+              <button 
+                onClick={handleSearchClick}
+                className="w-full bg-purple-600 hover:bg-purple-700 py-2 md:py-3 rounded-lg transition text-sm md:text-base">
                 Search Careers
               </button>
             </div>
@@ -60,36 +79,13 @@ export default function Home() {
                 <option value="finance">Finance</option>
                 <option value="education">Education</option>
               </select>
-              <button className="w-full bg-purple-600 hover:bg-purple-700 py-2 md:py-3 rounded-lg transition text-sm md:text-base">
+              <button 
+                onClick={handleBrowseClick}
+                className="w-full bg-purple-600 hover:bg-purple-700 py-2 md:py-3 rounded-lg transition text-sm md:text-base">
                 Browse Industries
               </button>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="container mx-auto px-4 py-8 md:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          <QuickLink
-            icon={<Briefcase className="w-5 h-5" />}
-            title="All Careers"
-            description="Browse all available career paths"
-          />
-          <QuickLink
-            icon={<Sun className="w-5 h-5" />}
-            title="Bright Outlook"
-            description="Careers with promising future growth"
-          />
-          <QuickLink
-            icon={<Layers className="w-5 h-5" />}
-            title="Career Clusters"
-            description="Explore related career groups"
-          />
-          <QuickLink
-            icon={<GraduationCap className="w-5 h-5" />}
-            title="Education Paths"
-            description="Find required qualifications"
-          />
         </div>
       </section>
 
